@@ -43,5 +43,8 @@ public class HospitalApplication implements CommandLineRunner {
         patient1.setScore(5);
         patientRepository.save(patient1);
         System.out.println(patient1.toString());
+        System.out.println("*****************");
+        // Supprimer un patient
+        patientRepository.deleteById(Long.valueOf(3));
     }
 }
