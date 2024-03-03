@@ -32,14 +32,16 @@ public class HospitalApplication implements CommandLineRunner {
         Patient patient = patientRepository.findById(Long.valueOf(1)).get();
         System.out.println(patient.toString());
         System.out.println("*****************");
-        List<Patient> patientList = patientRepository.findByNom("Wail");
+        List<Patient> patientList = patientRepository.findByNomContains("Wail");
         patientList.forEach(p->{
             System.out.println(p.toString());
         });
         System.out.println("*****************");
-        Patient patient1 = patientRepository.updateById(Long.valueOf(2));
+//        Mettre à jour un patient
+        Patient patient1 = patientRepository.findById(Long.valueOf(2)).get();
         patient1.setMalade(true);
         patient1.setScore(5);
+        patientRepository.save(patient1);
         System.out.println(patient1.toString());
     }
 }
