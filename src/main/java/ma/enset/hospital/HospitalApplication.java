@@ -21,9 +21,9 @@ public class HospitalApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        patientRepository.save(new Patient(null, "Ahmed", new Date("10/10/2002"),false, 8));
-        patientRepository.save(new Patient(null, "Wail", new Date("27/10/2002"),false, 10));
-        patientRepository.save(new Patient(null, "Oussama", new Date("20/10/2002"),false, 10));
+//        patientRepository.save(new Patient(null, "Ahmed", new Date("10/10/2002"),false, 8));
+//        patientRepository.save(new Patient(null, "Wail", new Date("27/10/2002"),false, 10));
+//        patientRepository.save(new Patient(null, "Oussama", new Date("20/10/2002"),false, 10));
         List<Patient> patients = patientRepository.findAll();
         patients.forEach(p->{
             System.out.println(p.toString());
@@ -37,7 +37,7 @@ public class HospitalApplication implements CommandLineRunner {
             System.out.println(p.toString());
         });
         System.out.println("*****************");
-//        Mettre à jour un patient
+        // Mettre à jour un patient
         Patient patient1 = patientRepository.findById(Long.valueOf(2)).get();
         patient1.setMalade(true);
         patient1.setScore(5);
